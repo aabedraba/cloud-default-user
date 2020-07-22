@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+
+  "name": "Change Cloud default user",
+  "description": "This extension will automatically change your Google Cloud logged in user.",
+  "version": "1.0",
+  "background": {
+    "scripts": ["change_url.js"]
+  },
+  "browser_action": {
+    "default_icon": "cloud-default-user.png"
+  },
+  "permissions": ["activeTab", "tabs"]
+}
