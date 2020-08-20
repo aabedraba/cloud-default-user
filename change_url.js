@@ -1,4 +1,12 @@
 chrome.browserAction.onClicked.addListener(function (tab) {
-  const myNewUrl = tab.url + "&authuser=3";
-  chrome.tabs.update({ url: myNewUrl });
+  let url = tab.url;
+  let newUrl = "";
+  if (!url.includes("authuser")) {
+    newUrl += tab.url + "&authuser=3";
+  } else {
+    if (!url.includes("authuser=3"))
+      newUrl += url.replace(/authuser=\d/, "authuser=3");
+    else return;
+  }
+  chrome.tabs.update({ url: newUrl });
 });
